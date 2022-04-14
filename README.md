@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## System 
 
-Things you may want to cover:
+* ruby 2.7.4
+* rails 6.1.4
+* sqlite3
 
-* Ruby version
 
-* System dependencies
+## Reset database & run seed data
 
-* Configuration
+```
+ $ make testapp-seed
+```
 
-* Database creation
+## Unit test
 
-* Database initialization
+```
+ $ rspec
+```
 
-* How to run the test suite
+## Authentication
 
-* Services (job queues, cache servers, search engines, etc.)
+Sign up first here `users/`
+keep token from header then using in sign in Authorization
 
-* Deployment instructions
-
-* ...
+Sign in here `users/sign_in` 
