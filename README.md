@@ -25,6 +25,7 @@
 ```
 
 ## Authentication
+run server default port `localhost:3000`
 
 Sign up first here `users/`
 keep token from header then using in sign in Authorization
