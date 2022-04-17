@@ -191,6 +191,27 @@ RSpec.describe "Api::V1::Products", type: :request do
           expect(response).to have_http_status(:bad_request)
         end
       end
+
+      context 'invalid parameters qty' do
+        before do
+          headers = { 'Accept' => 'application/json' }
+          auth_headers = Devise::JWT::TestHelpers.auth_headers(headers, user)
+          prd1.name = 'Test prd'
+          prd1.category_id = my_category.id
+          prd1.save
+
+          post "#{API_V1}/categories/#{my_category.id}/products/", params:
+                            { product: { 
+                               name: prd1.name,
+                               qty: '',
+                               category_id: my_category.id
+                            } }, headers: auth_headers
+        end
+
+        it 'returns a bad request status' do
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
     end
   end
 
